@@ -243,3 +243,120 @@ Started POST "/projects" for 127.0.0.1 at 2011-09-29 06:33:38 -0430
 Rendered projects/_form.html.erb (3.0ms)
 Rendered projects/new.html.erb within layouts/application (4.0ms)
 Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-01 04:08:54 -0430
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (134.0ms)
+Completed 200 OK in 597ms (Views: 597.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2011-10-01 04:08:56 -0430
+  Processing by ProjectsController#new as HTML
+Rendered projects/_form.html.erb (10.0ms)
+Rendered projects/new.html.erb within layouts/application (138.0ms)
+Completed 200 OK in 141ms (Views: 141.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2011-10-01 04:08:57 -0430
+  Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "project"=>{"name"=>"TextMate 2"}, "commit"=>"Create Project"}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (239.0ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 01 Oct 2011 08:38:57 UTC +00:00], ["name", "TextMate 2"], ["updated_at", Sat, 01 Oct 2011 08:38:57 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/1
+Completed 302 Found in 245ms
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2011-10-01 04:08:57 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "1"]]
+Rendered projects/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-01 04:08:57 -0430
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2011-10-01 04:08:57 -0430
+  Processing by ProjectsController#new as HTML
+Rendered projects/_form.html.erb (2.0ms)
+Rendered projects/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2011-10-01 04:08:57 -0430
+  Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "project"=>{"name"=>""}, "commit"=>"Create Project"}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Rendered projects/_form.html.erb (3.0ms)
+Rendered projects/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (193.0ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 01 Oct 2011 09:00:15 UTC +00:00], ["name", "TextMate 2"], ["updated_at", Sat, 01 Oct 2011 09:00:15 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-01 04:30:16 -0430
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (133.0ms)
+Completed 200 OK in 555ms (Views: 554.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (201.0ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 01 Oct 2011 09:12:17 UTC +00:00], ["name", "TextMate 2"], ["updated_at", Sat, 01 Oct 2011 09:12:17 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-01 04:42:18 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" 
+Rendered projects/index.html.erb within layouts/application (149.0ms)
+Completed 200 OK in 572ms (Views: 560.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2011-10-01 04:42:20 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Rendered projects/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 11ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (154.0ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 01 Oct 2011 09:17:53 UTC +00:00], ["name", "TextMate 2"], ["updated_at", Sat, 01 Oct 2011 09:17:53 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-01 04:47:53 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" 
+Rendered projects/index.html.erb within layouts/application (127.0ms)
+Completed 200 OK in 520ms (Views: 519.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2011-10-01 04:47:55 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Rendered projects/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (126.0ms)[0m  INSERT INTO "projects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 01 Oct 2011 09:21:37 UTC +00:00], ["name", "TextMate 2"], ["updated_at", Sat, 01 Oct 2011 09:21:37 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-01 04:51:37 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" 
+Rendered projects/index.html.erb within layouts/application (111.0ms)
+Completed 200 OK in 403ms (Views: 401.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2011-10-01 04:51:39 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Rendered projects/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 0.0ms)
