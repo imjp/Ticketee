@@ -1,5 +1,11 @@
 $green: #8da84e;
 
+@mixin rounded($radius: 3px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
 
 *{
   padding: 0px;
@@ -7,7 +13,7 @@ $green: #8da84e;
 }
 
 html {
-  background: #111;
+  background: #171717;
 	color: #ccc;
 }
 
@@ -20,8 +26,20 @@ body {
   -webkit-border-radius: 3px;
 }
 
-h1 {
-  margin-bottom: 20px;
+h1{
+  margin-bottom: 40px;
+	
+	a{
+		color: #fff;
+		
+		&:hover{
+			color: #fff;
+		}
+	}
+}
+
+h2{
+	margin: 0 0 15px 0;
 }
 
 nav {
@@ -41,16 +59,16 @@ textarea {
   padding: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
-  background: #222;
-	border: 1px solid #333;
-	color: #999;
+  background: #111;
+	border: 1px solid #222;
+	color: #999; 
 }
 
 input{
 	padding: 5px;
-  background: #222;
-	border: 1px solid #333;
-	color: #999;
+  background: #111;
+	border: 1px solid #222;
+	color: #999; 
 }
 
 input[type=file] {
@@ -59,19 +77,19 @@ input[type=file] {
 }
 
 .flash {
-  padding: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  padding: 10px; 
   font-weight: bold;
 }
 
 #notice {
-  background: #85FF00;
-  color: black;
+  background: #a6a350;
+  color: #444;
+	border: 1px solid #9fc24b;
 }
 
 #alert {
-  background: #FF3444;
+  background: #db1f1f;
+	border: 1px solid #eb3434;
 }
 
 ul#tickets {
