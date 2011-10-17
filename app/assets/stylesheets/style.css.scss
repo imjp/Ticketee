@@ -1,10 +1,14 @@
-* {
+$green: #8da84e;
+
+
+*{
   padding: 0px;
   margin: 0px;
 }
 
 html {
-  background: white;
+  background: #111;
+	color: #ccc;
 }
 
 body {
@@ -25,13 +29,28 @@ nav {
 }
 
 a {
-  color: #74CC00;
+  color: $green;
+	text-decoration: none;
+	
+	&:hover{
+		color: lighten($green, 20%);
+	}
 }
 
 textarea {
-  padding: 3px;
+  padding: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
+  background: #222;
+	border: 1px solid #333;
+	color: #999;
+}
+
+input{
+	padding: 5px;
+  background: #222;
+	border: 1px solid #333;
+	color: #999;
 }
 
 input[type=file] {
