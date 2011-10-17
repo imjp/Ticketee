@@ -1,0 +1,41 @@
+Migrating to CreateProjects (20110925000851)
+
+
+Started GET "/projects" for 127.0.0.1 at 2011-10-01 21:56:20 -0430
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (79.0ms)
+Completed 500 Internal Server Error in 514ms
+
+ActionView::Template::Error (application.css isn't precompiled):
+    2: <html>
+    3: 	<head>
+    4: 		<title><%= @title || "Ticketee" %></title>
+    5: 		<%= stylesheet_link_tag    "application" %>
+    6: 		<%= javascript_include_tag "application" %>
+    7: 		<%= csrf_meta_tags %>
+    8: 	</head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___403672942_35793252'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-01 21:56:35 -0430
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (application.css isn't precompiled):
+    2: <html>
+    3: 	<head>
+    4: 		<title><%= @title || "Ticketee" %></title>
+    5: 		<%= stylesheet_link_tag    "application" %>
+    6: 		<%= javascript_include_tag "application" %>
+    7: 		<%= csrf_meta_tags %>
+    8: 	</head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___403672942_35793252'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)

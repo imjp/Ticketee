@@ -1,4 +1,5 @@
-class ProjectsController < ApplicationController
+class ProjectsController < ApplicationController  
+
 	def index
 		@projects = Project.all
 	end
@@ -38,7 +39,7 @@ class ProjectsController < ApplicationController
 			render :action => 'edit'
 		end
 	end
-	
+
 	def destroy
 		@project = Project.find(params[:id])
 		@project.destroy

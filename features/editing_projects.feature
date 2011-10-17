@@ -20,3 +20,5 @@ Feature: Editing Projects
 		And I fill in "Name" with " "
 		And I press "Update Project"
 		Then I should see "Project has not been updated."
+		
+		
