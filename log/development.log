@@ -14890,3 +14890,1190 @@ Served asset /application.js - 304 Not Modified (5ms)
 
 Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-16 23:42:46 -0430
 Served asset /projects.js - 304 Not Modified (0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateProjects (20110925000851)
+Migrating to CreateTickets (20111002042546)
+Migrating to DeviseCreateUsers (20111017030106)
+Migrating to AddConfirmableToUsers (20111017034619)
+Migrating to AddUserIdToTickets (20111017041113)
+Migrating to AddAdminToUsers (20111017042325)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111017042325')
+  [1m[36m (1.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("projects")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("tickets")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_tickets_on_project_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-17 00:03:42 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" [0m
+Rendered projects/index.html.erb within layouts/application (7.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 112ms (Views: 108.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:03:43 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:43 -0430
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:43 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:43 -0430
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:03:43 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:43 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:43 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-17 00:03:43 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" [0m
+Rendered projects/index.html.erb within layouts/application (7.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 78ms (Views: 73.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:03:44 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:44 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:44 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:03:44 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:44 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:44 -0430
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:44 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-17 00:03:45 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" [0m
+Rendered projects/index.html.erb within layouts/application (12.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 95ms (Views: 91.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:03:45 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:45 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:45 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:45 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:03:45 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:45 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:45 -0430
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2011-10-17 00:03:46 -0430
+  Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 46ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-17 00:03:46 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" 
+Rendered projects/index.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 77ms (Views: 73.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:03:46 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:47 -0430
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:47 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:03:47 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:47 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:47 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:03:47 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-17 00:04:04 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" 
+Rendered projects/index.html.erb within layouts/application (9.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 127ms (Views: 123.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:04:05 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:05 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:05 -0430
+Served asset /tickets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:05 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:04:05 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:05 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:05 -0430
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:04:15 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (78.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 269ms (Views: 263.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:15 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:15 -0430
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:16 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:04:16 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:16 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:16 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:04:16 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15/tickets/new" for 127.0.0.1 at 2011-10-17 00:04:17 -0430
+  Processing by TicketsController#new as HTML
+  Parameters: {"project_id"=>"15"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+Rendered tickets/_form.html.erb (5.0ms)
+Rendered tickets/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 124ms (Views: 32.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:04:17 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:17 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:17 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:17 -0430
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:17 -0430
+Served asset /application.js - 304 Not Modified (43ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:04:17 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:04:17 -0430
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:15:18 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (1.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (122.0ms)
+Completed 200 OK in 149ms (Views: 145.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:15:18 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:15:18 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:15:18 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:15:18 -0430
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:15:18 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:15:18 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:15:18 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-17 00:17:23 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" 
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered projects/index.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 105ms (Views: 101.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:17:23 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:17:23 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:17:23 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:17:23 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:17:23 -0430
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:17:23 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:17:23 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-17 00:21:59 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" 
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered projects/index.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 102ms (Views: 98.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:21:59 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:21:59 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:21:59 -0430
+Served asset /application.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:21:59 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:21:59 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:21:59 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:21:59 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:22:01 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mTicket Load (0.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15
+Rendered projects/show.html.erb within layouts/application (185.0ms)
+Completed 200 OK in 206ms (Views: 201.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:22:02 -0430
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:22:02 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:22:02 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:22:02 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:22:02 -0430
+Served asset /tickets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:22:02 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:22:02 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:23:20 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (109.0ms)
+Completed 200 OK in 129ms (Views: 127.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:23:20 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:20 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:20 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:20 -0430
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:23:20 -0430
+Served asset /style.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:20 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:20 -0430
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:23:21 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mTicket Load (0.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15
+Rendered projects/show.html.erb within layouts/application (92.0ms)
+Completed 200 OK in 117ms (Views: 112.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:23:21 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:21 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:21 -0430
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:21 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:21 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:23:21 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:21 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-17 00:23:24 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.0ms)[0m  [1mSELECT "projects".* FROM "projects" [0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered projects/index.html.erb within layouts/application (79.0ms)
+Completed 200 OK in 99ms (Views: 96.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:23:24 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:23:24 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:24 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:24 -0430
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:24 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:24 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:24 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:23:25 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (105.0ms)
+Completed 200 OK in 124ms (Views: 119.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:23:25 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:25 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:25 -0430
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:25 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:25 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:23:25 -0430
+Served asset /style.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:23:25 -0430
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:25:13 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mTicket Load (0.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15
+Rendered projects/show.html.erb within layouts/application (125.0ms)
+Completed 200 OK in 153ms (Views: 145.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:25:13 -0430
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:25:13 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:25:13 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:25:13 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:25:13 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:25:13 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:25:13 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/projects/15/tickets/6" for 127.0.0.1 at 2011-10-17 00:25:15 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"6"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mTicket Load (0.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered tickets/show.html.erb within layouts/application (41.0ms)
+Completed 500 Internal Server Error in 82ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <h2><%= @ticket.title %></h2>
+    2: <small>Created by <%= @ticket.user.email %></small>
+    3: <%= simple_format(@ticket.description) %>
+    4: <br>
+    5: <%= link_to "Edit Ticket", [:edit, @project, @ticket] %> <br>
+  app/views/tickets/show.html.erb:2:in `_app_views_tickets_show_html_erb__541005533_32901480'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:27:59 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mTicket Load (1.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15
+Rendered projects/show.html.erb within layouts/application (134.0ms)
+Completed 200 OK in 154ms (Views: 147.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:27:59 -0430
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:27:59 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:27:59 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:27:59 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:27:59 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:27:59 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:27:59 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:28:08 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (88.0ms)
+Completed 200 OK in 116ms (Views: 112.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:08 -0430
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:08 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:08 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:08 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:08 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:28:08 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:28:08 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15/tickets/6" for 127.0.0.1 at 2011-10-17 00:28:08 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"6"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "6"]]
+Rendered tickets/show.html.erb within layouts/application (13.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 132ms (Views: 105.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:09 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:09 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:09 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:09 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:28:09 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:28:09 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:09 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/projects/15/tickets/7" for 127.0.0.1 at 2011-10-17 00:28:13 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"7"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mTicket Load (0.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1  [["id", "7"]]
+Rendered tickets/show.html.erb within layouts/application (11.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 98ms (Views: 72.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:13 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:13 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:13 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:28:13 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:13 -0430
+Served asset /jquery.js - 304 Not Modified (60ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:28:14 -0430
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:28:14 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15/tickets/7" for 127.0.0.1 at 2011-10-17 00:31:49 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"7"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered tickets/show.html.erb within layouts/application (45.0ms)
+Completed 500 Internal Server Error in 90ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <h2><%= @ticket.title %></h2>
+    2: <small>Created by <%= @ticket.user.email %></small>
+    3: <%= simple_format(@ticket.description) %>
+    4: <br>
+    5: <%= link_to "Edit Ticket", [:edit, @project, @ticket] %> <br>
+  app/views/tickets/show.html.erb:2:in `_app_views_tickets_show_html_erb__541005533_43570440'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-17 00:31:52 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" [0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered projects/index.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 75ms (Views: 70.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:52 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:31:52 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:52 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:52 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:31:52 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:52 -0430
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:52 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:31:53 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (1.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTicket Load (1.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (143.0ms)
+Completed 200 OK in 169ms (Views: 157.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:31:54 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:54 -0430
+Served asset /projects.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:54 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:54 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:54 -0430
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:31:54 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:31:54 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/projects/15/tickets/6" for 127.0.0.1 at 2011-10-17 00:31:56 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"6"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered tickets/show.html.erb within layouts/application (38.0ms)
+Completed 500 Internal Server Error in 112ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <h2><%= @ticket.title %></h2>
+    2: <small>Created by <%= @ticket.user.email %></small>
+    3: <%= simple_format(@ticket.description) %>
+    4: <br>
+    5: <%= link_to "Edit Ticket", [:edit, @project, @ticket] %> <br>
+  app/views/tickets/show.html.erb:2:in `_app_views_tickets_show_html_erb__541005533_43570440'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started GET "/projects/15/tickets/6" for 127.0.0.1 at 2011-10-17 00:32:08 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"6"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mTicket Load (0.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1  [["id", "6"]]
+Rendered tickets/show.html.erb within layouts/application (11.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 109ms (Views: 81.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:08 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:08 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:32:08 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:08 -0430
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:08 -0430
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:32:08 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:08 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (53ms)
+
+
+Started GET "/projects/15/tickets/6" for 127.0.0.1 at 2011-10-17 00:32:47 -0430
+
+SyntaxError (c:/rails/ticketee/app/controllers/tickets_controller.rb:23: syntax error, unexpected tIVAR, expecting keyword_end
+		@title = @project.name + " > " @ticket.title
+		                                      ^):
+  
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+
+
+Started GET "/projects/15/tickets/6" for 127.0.0.1 at 2011-10-17 00:32:54 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"6"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "6"]]
+Rendered tickets/show.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 129ms (Views: 64.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:32:54 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:54 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:54 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:54 -0430
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:54 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:32:54 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:32:54 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:33:12 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (119.0ms)
+Completed 200 OK in 149ms (Views: 141.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:12 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:12 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:33:12 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:12 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:12 -0430
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:33:12 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:12 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/projects/15/tickets/7" for 127.0.0.1 at 2011-10-17 00:33:14 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"7"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (1.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "7"]]
+Rendered tickets/show.html.erb within layouts/application (3.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 100ms (Views: 65.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:14 -0430
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:33:14 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:14 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:14 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:14 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:33:14 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:14 -0430
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:33:16 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (107.0ms)
+Completed 200 OK in 132ms (Views: 125.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:17 -0430
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:17 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:17 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:33:17 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:17 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:33:17 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:33:17 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/projects/15/tickets/6" for 127.0.0.1 at 2011-10-17 00:38:31 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"6"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "6"]]
+Rendered tickets/show.html.erb within layouts/application (8.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 158ms (Views: 114.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:38:31 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:38:31 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:31 -0430
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:31 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:31 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:31 -0430
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:31 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-17 00:38:55 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (89.0ms)
+Completed 200 OK in 122ms (Views: 108.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:55 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-17 00:38:55 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:56 -0430
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:56 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:56 -0430
+Served asset /projects.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-17 00:38:56 -0430
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-17 00:38:56 -0430
+Served asset /style.css - 304 Not Modified (0ms)

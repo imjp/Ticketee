@@ -20,6 +20,7 @@ class TicketsController < ApplicationController
 	end
 	
 	def show		
+		@title = @project.name + " > " + @ticket.title
 	end
 	
 	def edit

@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController  
+	before_filter :authorize_admin!, :except => [:index, :show]
 
 	def index
 		@projects = Project.all
@@ -6,6 +7,7 @@ class ProjectsController < ApplicationController
 	
 	def show
 		@project = Project.find(params[:id])
+		@title = @project.name
 	end
 	
 	def new
