@@ -10,6 +10,9 @@
 		<nav>
 			<% if user_signed_in? %>
 				Signed in as <%= current_user.email %>  
+				<%= admins_only do %>
+					&nbsp;|&nbsp;<%= link_to "Admin", admin_root_path %>
+				<% end %>
 			<% else %>
 				<%= link_to "Sign in", new_user_session_path %> | 
 				<%= link_to "Register", new_user_registration_path %>

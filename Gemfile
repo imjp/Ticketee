@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -31,3 +31,5 @@ group :test do
 end
 
 gem 'devise', '~> 1.4.3'
+gem 'cancan'
+gem 'paperclip'
