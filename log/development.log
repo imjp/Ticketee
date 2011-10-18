@@ -17403,3 +17403,791 @@ Served asset /tickets.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 02:38:25 -0430
 Served asset /application.js - 304 Not Modified (0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateProjects (20110925000851)
+Migrating to CreateTickets (20111002042546)
+Migrating to DeviseCreateUsers (20111017030106)
+Migrating to AddConfirmableToUsers (20111017034619)
+Migrating to AddUserIdToTickets (20111017041113)
+Migrating to AddAdminToUsers (20111017042325)
+Migrating to AddAttachmentAssetToTicket (20111018065409)
+Migrating to CreateAssets (20111018072331)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asset_file_name" varchar(255), "asset_file_size" integer, "asset_content_type" varchar(255), "asset_updated_at" datetime, "ticket_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE "altered_tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "project_id" integer, "created_at" datetime, "updated_at" datetime, "user_id" integer, "asset_file_name" varchar(255), "asset_content_type" varchar(255), "asset_file_size" integer, "asset_updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tickets")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_tickets_on_project_id')
+  [1m[36m (1.0ms)[0m  [1mPRAGMA index_list("altered_tickets")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "temp_index_altered_tickets_on_project_id" ON "altered_tickets" ("project_id")
+  [1m[36m (1.0ms)[0m  [1mSELECT * FROM "tickets"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_file_name","asset_content_type","asset_file_size","asset_updated_at") VALUES (2, 'Penis!!', 'weeeeeeee', 11, '2011-10-02 05:22:19.480351', '2011-10-02 05:22:19.480351', NULL, NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_file_name","asset_content_type","asset_file_size","asset_updated_at") VALUES (6, 'Flight Schedule is broken', 'We need to fix this flight schedule asap to get visitors to stop bitching. lol', 15, '2011-10-17 01:55:52.607743', '2011-10-17 02:27:29.396233', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_file_name","asset_content_type","asset_file_size","asset_updated_at") VALUES (7, 'Logo needs to be resized', 'The logo is too large, please make it somewhat smaller.', 15, '2011-10-17 01:56:31.623975', '2011-10-17 01:56:31.623975', NULL, NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_file_name","asset_content_type","asset_file_size","asset_updated_at") VALUES (10, 'airport', 'there we go it''s an image of the airport', 15, '2011-10-18 07:02:35.128958', '2011-10-18 07:02:35.128958', 1, 'Airport_Page_1.png', 'image/png', 124971, '2011-10-18 07:02:34.912946')[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "tickets"
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "project_id" integer, "created_at" datetime, "updated_at" datetime, "user_id" integer, "asset_content_type" varchar(255), "asset_file_size" integer, "asset_updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_tickets")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_tickets_on_project_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("tickets")
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_tickets_on_project_id" ON "tickets" ("project_id")[0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_tickets"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_file_size","asset_updated_at") VALUES (2, 'Penis!!', 'weeeeeeee', 11, '2011-10-02 05:22:19.480351', '2011-10-02 05:22:19.480351', NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_file_size","asset_updated_at") VALUES (6, 'Flight Schedule is broken', 'We need to fix this flight schedule asap to get visitors to stop bitching. lol', 15, '2011-10-17 01:55:52.607743', '2011-10-17 02:27:29.396233', NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_file_size","asset_updated_at") VALUES (7, 'Logo needs to be resized', 'The logo is too large, please make it somewhat smaller.', 15, '2011-10-17 01:56:31.623975', '2011-10-17 01:56:31.623975', NULL, NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_file_size","asset_updated_at") VALUES (10, 'airport', 'there we go it''s an image of the airport', 15, '2011-10-18 07:02:35.128958', '2011-10-18 07:02:35.128958', 1, 'image/png', 124971, '2011-10-18 07:02:34.912946')
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "altered_tickets"[0m
+  [1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE "altered_tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "project_id" integer, "created_at" datetime, "updated_at" datetime, "user_id" integer, "asset_content_type" varchar(255), "asset_file_size" integer, "asset_updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tickets")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_tickets_on_project_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_tickets")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "temp_index_altered_tickets_on_project_id" ON "altered_tickets" ("project_id")
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "tickets"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_file_size","asset_updated_at") VALUES (2, 'Penis!!', 'weeeeeeee', 11, '2011-10-02 05:22:19.480351', '2011-10-02 05:22:19.480351', NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_file_size","asset_updated_at") VALUES (6, 'Flight Schedule is broken', 'We need to fix this flight schedule asap to get visitors to stop bitching. lol', 15, '2011-10-17 01:55:52.607743', '2011-10-17 02:27:29.396233', NULL, NULL, NULL, NULL)[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_file_size","asset_updated_at") VALUES (7, 'Logo needs to be resized', 'The logo is too large, please make it somewhat smaller.', 15, '2011-10-17 01:56:31.623975', '2011-10-17 01:56:31.623975', NULL, NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_file_size","asset_updated_at") VALUES (10, 'airport', 'there we go it''s an image of the airport', 15, '2011-10-18 07:02:35.128958', '2011-10-18 07:02:35.128958', 1, 'image/png', 124971, '2011-10-18 07:02:34.912946')[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "tickets"
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "project_id" integer, "created_at" datetime, "updated_at" datetime, "user_id" integer, "asset_content_type" varchar(255), "asset_updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_tickets")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_tickets_on_project_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("tickets")
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_tickets_on_project_id" ON "tickets" ("project_id")[0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_tickets"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_updated_at") VALUES (2, 'Penis!!', 'weeeeeeee', 11, '2011-10-02 05:22:19.480351', '2011-10-02 05:22:19.480351', NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_updated_at") VALUES (6, 'Flight Schedule is broken', 'We need to fix this flight schedule asap to get visitors to stop bitching. lol', 15, '2011-10-17 01:55:52.607743', '2011-10-17 02:27:29.396233', NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_updated_at") VALUES (7, 'Logo needs to be resized', 'The logo is too large, please make it somewhat smaller.', 15, '2011-10-17 01:56:31.623975', '2011-10-17 01:56:31.623975', NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_updated_at") VALUES (10, 'airport', 'there we go it''s an image of the airport', 15, '2011-10-18 07:02:35.128958', '2011-10-18 07:02:35.128958', 1, 'image/png', '2011-10-18 07:02:34.912946')
+  [1m[36m (0.0ms)[0m  [1mDROP TABLE "altered_tickets"[0m
+  [1m[35m (0.0ms)[0m  CREATE TEMPORARY TABLE "altered_tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "project_id" integer, "created_at" datetime, "updated_at" datetime, "user_id" integer, "asset_content_type" varchar(255), "asset_updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tickets")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_tickets_on_project_id')
+  [1m[36m (1.0ms)[0m  [1mPRAGMA index_list("altered_tickets")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "temp_index_altered_tickets_on_project_id" ON "altered_tickets" ("project_id")
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "tickets"[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_updated_at") VALUES (2, 'Penis!!', 'weeeeeeee', 11, '2011-10-02 05:22:19.480351', '2011-10-02 05:22:19.480351', NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_updated_at") VALUES (6, 'Flight Schedule is broken', 'We need to fix this flight schedule asap to get visitors to stop bitching. lol', 15, '2011-10-17 01:55:52.607743', '2011-10-17 02:27:29.396233', NULL, NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_updated_at") VALUES (7, 'Logo needs to be resized', 'The logo is too large, please make it somewhat smaller.', 15, '2011-10-17 01:56:31.623975', '2011-10-17 01:56:31.623975', NULL, NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_content_type","asset_updated_at") VALUES (10, 'airport', 'there we go it''s an image of the airport', 15, '2011-10-18 07:02:35.128958', '2011-10-18 07:02:35.128958', 1, 'image/png', '2011-10-18 07:02:34.912946')[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "tickets"
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "project_id" integer, "created_at" datetime, "updated_at" datetime, "user_id" integer, "asset_updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_tickets")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_tickets_on_project_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("tickets")
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_tickets_on_project_id" ON "tickets" ("project_id")[0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_tickets"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_updated_at") VALUES (2, 'Penis!!', 'weeeeeeee', 11, '2011-10-02 05:22:19.480351', '2011-10-02 05:22:19.480351', NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_updated_at") VALUES (6, 'Flight Schedule is broken', 'We need to fix this flight schedule asap to get visitors to stop bitching. lol', 15, '2011-10-17 01:55:52.607743', '2011-10-17 02:27:29.396233', NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_updated_at") VALUES (7, 'Logo needs to be resized', 'The logo is too large, please make it somewhat smaller.', 15, '2011-10-17 01:56:31.623975', '2011-10-17 01:56:31.623975', NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_updated_at") VALUES (10, 'airport', 'there we go it''s an image of the airport', 15, '2011-10-18 07:02:35.128958', '2011-10-18 07:02:35.128958', 1, '2011-10-18 07:02:34.912946')
+  [1m[36m (0.0ms)[0m  [1mDROP TABLE "altered_tickets"[0m
+  [1m[35m (0.0ms)[0m  CREATE TEMPORARY TABLE "altered_tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "project_id" integer, "created_at" datetime, "updated_at" datetime, "user_id" integer, "asset_updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tickets")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_tickets_on_project_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_tickets")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "temp_index_altered_tickets_on_project_id" ON "altered_tickets" ("project_id")
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "tickets"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_updated_at") VALUES (2, 'Penis!!', 'weeeeeeee', 11, '2011-10-02 05:22:19.480351', '2011-10-02 05:22:19.480351', NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_updated_at") VALUES (6, 'Flight Schedule is broken', 'We need to fix this flight schedule asap to get visitors to stop bitching. lol', 15, '2011-10-17 01:55:52.607743', '2011-10-17 02:27:29.396233', NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_updated_at") VALUES (7, 'Logo needs to be resized', 'The logo is too large, please make it somewhat smaller.', 15, '2011-10-17 01:56:31.623975', '2011-10-17 01:56:31.623975', NULL, NULL)
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "altered_tickets" ("id","title","description","project_id","created_at","updated_at","user_id","asset_updated_at") VALUES (10, 'airport', 'there we go it''s an image of the airport', 15, '2011-10-18 07:02:35.128958', '2011-10-18 07:02:35.128958', 1, '2011-10-18 07:02:34.912946')[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "tickets"
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "project_id" integer, "created_at" datetime, "updated_at" datetime, "user_id" integer) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_tickets")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_tickets_on_project_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("tickets")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_tickets_on_project_id" ON "tickets" ("project_id")[0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_tickets"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id") VALUES (2, 'Penis!!', 'weeeeeeee', 11, '2011-10-02 05:22:19.480351', '2011-10-02 05:22:19.480351', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id") VALUES (6, 'Flight Schedule is broken', 'We need to fix this flight schedule asap to get visitors to stop bitching. lol', 15, '2011-10-17 01:55:52.607743', '2011-10-17 02:27:29.396233', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id") VALUES (7, 'Logo needs to be resized', 'The logo is too large, please make it somewhat smaller.', 15, '2011-10-17 01:56:31.623975', '2011-10-17 01:56:31.623975', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tickets" ("id","title","description","project_id","created_at","updated_at","user_id") VALUES (10, 'airport', 'there we go it''s an image of the airport', 15, '2011-10-18 07:02:35.128958', '2011-10-18 07:02:35.128958', 1)
+  [1m[36m (0.0ms)[0m  [1mDROP TABLE "altered_tickets"[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111018072331')
+  [1m[36m (1.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("assets")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("projects")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tickets")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_tickets_on_project_id')
+  [1m[36m (1.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/projects/15/tickets/10" for 127.0.0.1 at 2011-10-18 03:00:03 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"10"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mTicket Load (0.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1  [["id", "10"]]
+Rendered tickets/show.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (undefined method `asset' for #<Ticket:0x41d9258>):
+    2: <%= simple_format(@ticket.description) %>
+    3: <br>
+    4: 
+    5: <% if @ticket.asset.exists? %>
+    6: 	<h3>Attached Files</h3>
+    7: 	<div class="asset">
+    8: 		<% @ticket.assets.each do |asset| %>
+  app/views/tickets/show.html.erb:5:in `_app_views_tickets_show_html_erb__284059222_33774072'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-18 03:00:08 -0430
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" [0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered projects/index.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 78ms (Views: 75.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:00:08 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:08 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:00:08 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:08 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:08 -0430
+Served asset /admin/users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:08 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:08 -0430
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:08 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-18 03:00:09 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mTicket Load (0.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15
+Rendered projects/show.html.erb within layouts/application (118.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 189ms (Views: 180.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:00:10 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:00:10 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:10 -0430
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:10 -0430
+Served asset /admin/users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:10 -0430
+Served asset /tickets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:10 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:10 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:00:10 -0430
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/projects/15/tickets/6" for 127.0.0.1 at 2011-10-18 03:00:11 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"6"}
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "6"]]
+Rendered tickets/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 51ms
+
+ActionView::Template::Error (undefined method `asset' for #<Ticket:0x425af78>):
+    2: <%= simple_format(@ticket.description) %>
+    3: <br>
+    4: 
+    5: <% if @ticket.asset.exists? %>
+    6: 	<h3>Attached Files</h3>
+    7: 	<div class="asset">
+    8: 		<% @ticket.assets.each do |asset| %>
+  app/views/tickets/show.html.erb:5:in `_app_views_tickets_show_html_erb__284059222_33774072'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+
+
+Started GET "/projects/15/tickets/7" for 127.0.0.1 at 2011-10-18 03:00:13 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"7"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "7"]]
+Rendered tickets/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 51ms
+
+ActionView::Template::Error (undefined method `asset' for #<Ticket:0x41c7ab0>):
+    2: <%= simple_format(@ticket.description) %>
+    3: <br>
+    4: 
+    5: <% if @ticket.asset.exists? %>
+    6: 	<h3>Attached Files</h3>
+    7: 	<div class="asset">
+    8: 		<% @ticket.assets.each do |asset| %>
+  app/views/tickets/show.html.erb:5:in `_app_views_tickets_show_html_erb__284059222_33774072'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+
+
+Started GET "/projects/15/tickets/7" for 127.0.0.1 at 2011-10-18 03:00:42 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"7"}
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (1.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "7"]]
+ERROR: compiling _app_views_tickets_show_html_erb__284059222_44705496 RAISED c:/rails/ticketee/app/views/tickets/show.html.erb:5: syntax error, unexpected tIVAR
+'); if @ticket.@asset.exists? 
+                     ^
+c:/rails/ticketee/app/views/tickets/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting $end
+Function body:           def _app_views_tickets_show_html_erb__284059222_44705496(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "tickets/show";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h2>');@output_buffer.append= ( @ticket.title );@output_buffer.safe_concat('</h2> 
+');@output_buffer.append= ( simple_format(@ticket.description) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('<br>
+
+'); if @ticket.@asset.exists? 
+@output_buffer.safe_concat('	<h3>Attached Files</h3>
+	<div class="asset">
+');		 @ticket.assets.each do |asset| 
+@output_buffer.safe_concat('			<p>
+				');@output_buffer.append= ( link_to File.basename(asset.asset_file_name), asset.asset.url );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('			</p>
+			<p><small>');@output_buffer.append= ( number_to_human_size(asset.asset.size) );@output_buffer.safe_concat('</small></p>
+');		 end 
+@output_buffer.safe_concat('		<br>
+'); end 
+@output_buffer.safe_concat('
+');@output_buffer.append= ( link_to "Edit Ticket", [:edit, @project, @ticket] );@output_buffer.safe_concat(' <br>
+');@output_buffer.append= ( link_to "Delete Ticket", [@project, @ticket], :method => :delete, :confirm => "Are you sure you want to delete this ticket?" );@output_buffer.safe_concat(' <br>
+Back to ');@output_buffer.append= ( link_to @project.name, @project );@output_buffer.safe_concat('
+');@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/template.rb:282:in `module_eval'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/template.rb:282:in `compile'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/template.rb:190:in `compile!'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/template.rb:143:in `block in render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/notifications.rb:55:in `instrument'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/template.rb:142:in `render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/template_renderer.rb:40:in `block (2 levels) in render_template'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/abstract_renderer.rb:33:in `block in instrument'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/notifications.rb:53:in `block in instrument'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/notifications.rb:53:in `instrument'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/abstract_renderer.rb:33:in `instrument'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/template_renderer.rb:39:in `block in render_template'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/template_renderer.rb:47:in `render_with_layout'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/template_renderer.rb:38:in `render_template'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/template_renderer.rb:12:in `block in render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/abstract_renderer.rb:22:in `wrap_formats'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/template_renderer.rb:9:in `render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/renderer.rb:36:in `render_template'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_view/renderer/renderer.rb:17:in `render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/abstract_controller/rendering.rb:120:in `_render_template'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/streaming.rb:250:in `_render_template'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/abstract_controller/rendering.rb:114:in `render_to_body'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/renderers.rb:30:in `render_to_body'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/compatibility.rb:43:in `render_to_body'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/abstract_controller/rendering.rb:99:in `render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/rendering.rb:16:in `render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+C:/Ruby192/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activerecord-3.1.1/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/instrumentation.rb:39:in `render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/abstract_controller/base.rb:167:in `process_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/rendering.rb:10:in `process_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/callbacks.rb:434:in `_run__721671622__process_action__994742047__callbacks'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/callbacks.rb:81:in `run_callbacks'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/abstract_controller/callbacks.rb:17:in `process_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/rescue.rb:17:in `process_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/notifications.rb:53:in `block in instrument'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/notifications.rb:53:in `instrument'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/params_wrapper.rb:201:in `process_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activerecord-3.1.1/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/abstract_controller/base.rb:121:in `process'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/abstract_controller/rendering.rb:45:in `process'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal.rb:193:in `dispatch'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_controller/metal.rb:236:in `block in action'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/routing/route_set.rb:65:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/routing/route_set.rb:29:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `optimized_each'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/routing/route_set.rb:532:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/warden-1.0.6/lib/warden/manager.rb:35:in `block in call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/warden-1.0.6/lib/warden/manager.rb:34:in `catch'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/warden-1.0.6/lib/warden/manager.rb:34:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/etag.rb:23:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/conditionalget.rb:25:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/head.rb:14:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/flash.rb:243:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/session/abstract/id.rb:195:in `context'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/session/abstract/id.rb:190:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/cookies.rb:331:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activerecord-3.1.1/lib/active_record/query_cache.rb:62:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activerecord-3.1.1/lib/active_record/connection_adapters/abstract/connection_pool.rb:477:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/callbacks.rb:81:in `run_callbacks'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/reloader.rb:68:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/sendfile.rb:101:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/railties-3.1.1/lib/rails/rack/logger.rb:13:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/runtime.rb:17:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/activesupport-3.1.1/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/lock.rb:15:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/static.rb:53:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/railties-3.1.1/lib/rails/engine.rb:456:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/railties-3.1.1/lib/rails/rack/content_length.rb:16:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/railties-3.1.1/lib/rails/rack/log_tailer.rb:14:in `call'
+C:/Ruby192/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/handler/webrick.rb:59:in `service'
+C:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+C:/Ruby192/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+C:/Ruby192/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered tickets/show.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 85ms
+
+ActionView::Template::Error (c:/rails/ticketee/app/views/tickets/show.html.erb:5: syntax error, unexpected tIVAR
+'); if @ticket.@asset.exists? 
+                     ^
+c:/rails/ticketee/app/views/tickets/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting $end):
+    2: <%= simple_format(@ticket.description) %>
+    3: <br>
+    4: 
+    5: <% if @ticket.@asset.exists? %>
+    6: 	<h3>Attached Files</h3>
+    7: 	<div class="asset">
+    8: 		<% @ticket.assets.each do |asset| %>
+  
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.0ms)
+
+
+Started GET "/projects/15/tickets/7" for 127.0.0.1 at 2011-10-18 03:01:05 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"7"}
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "7"]]
+[paperclip] Duplicate URL for asset with /system/:attachment/:id/:style/:filename. This will clash with attachment defined in Ticket class
+  [1m[35mAsset Load (0.0ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."ticket_id" = 7
+Rendered tickets/show.html.erb within layouts/application (27.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 246ms (Views: 91.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:06 -0430
+Served asset /style.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:06 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:06 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:06 -0430
+Served asset /admin/users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:06 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:06 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:06 -0430
+Served asset /projects.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:06 -0430
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-18 03:01:10 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (103.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 177ms (Views: 169.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:10 -0430
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:10 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:10 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:10 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:10 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:10 -0430
+Served asset /admin/users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:10 -0430
+Served asset /tickets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:10 -0430
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15/tickets/10" for 127.0.0.1 at 2011-10-18 03:01:12 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"10"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mTicket Load (1.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1  [["id", "10"]]
+  [1m[36mAsset Load (0.0ms)[0m  [1mSELECT "assets".* FROM "assets" WHERE "assets"."ticket_id" = 10[0m
+Rendered tickets/show.html.erb within layouts/application (23.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 156ms (Views: 123.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:12 -0430
+Served asset /admin/users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:12 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:12 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:12 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:12 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:12 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:12 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:12 -0430
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started DELETE "/projects/15/tickets/10" for 127.0.0.1 at 2011-10-18 03:01:17 -0430
+  Processing by TicketsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XeoLoRBAuVzG7ZpcgoElJJjZRNWEqrWqfDldD37wGP4=", "project_id"=>"15", "id"=>"10"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "10"]]
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "tickets" WHERE "tickets"."id" = ?  [["id", 10]]
+Redirected to http://localhost:3000/projects/15
+Completed 302 Found in 185ms
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-18 03:01:18 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mTicket Load (0.0ms)[0m  SELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15
+Rendered projects/show.html.erb within layouts/application (47.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 182ms (Views: 168.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:18 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:18 -0430
+Served asset /admin/users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:18 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:18 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:18 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:18 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:18 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:18 -0430
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/projects/15/tickets/new" for 127.0.0.1 at 2011-10-18 03:01:19 -0430
+  Processing by TicketsController#new as HTML
+  Parameters: {"project_id"=>"15"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProject Load (2.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+Rendered tickets/_form.html.erb (7.0ms)
+Rendered tickets/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 153ms (Views: 28.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:20 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:20 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:20 -0430
+Served asset /admin/users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:20 -0430
+Served asset /style.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:20 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:20 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:20 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:20 -0430
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started POST "/projects/15/tickets" for 127.0.0.1 at 2011-10-18 03:01:38 -0430
+  Processing by TicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XeoLoRBAuVzG7ZpcgoElJJjZRNWEqrWqfDldD37wGP4=", "ticket"=>{"title"=>"magnus", "description"=>"magnificus", "assets_attributes"=>{"0"=>{"asset"=>#<ActionDispatch::Http::UploadedFile:0x4b540c0 @original_filename="gradient.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"ticket[assets_attributes][0][asset]\"; filename=\"gradient.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:C:/Users/jp/AppData/Local/Temp/RackMultipart20111018-4768-61cro9>>}, "1"=>{"asset"=>#<ActionDispatch::Http::UploadedFile:0x4b53e20 @original_filename="Airport_Page_1.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"ticket[assets_attributes][1][asset]\"; filename=\"Airport_Page_1.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:C:/Users/jp/AppData/Local/Temp/RackMultipart20111018-4768-1ii47sr>>}, "2"=>{"asset"=>#<ActionDispatch::Http::UploadedFile:0x4b53bf8 @original_filename="spin.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"ticket[assets_attributes][2][asset]\"; filename=\"spin.txt\"\r\nContent-Type: text/plain\r\n", @tempfile=#<File:C:/Users/jp/AppData/Local/Temp/RackMultipart20111018-4768-13x2hxs>>}}}, "commit"=>"Create Ticket", "project_id"=>"15"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "tickets" ("created_at", "description", "project_id", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00], ["description", "magnificus"], ["project_id", 15], ["title", "magnus"], ["updated_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00], ["user_id", 1]]
+Binary data inserted for `string` type on column `asset_content_type`
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "assets" ("asset_content_type", "asset_file_name", "asset_file_size", "asset_updated_at", "created_at", "ticket_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["asset_content_type", "text/plain"], ["asset_file_name", "gradient.txt"], ["asset_file_size", 40], ["asset_updated_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00], ["created_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00], ["ticket_id", 11], ["updated_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00]]
+[paperclip] Saving attachments.
+[paperclip] saving c:/rails/ticketee/public/system/assets/1/original/gradient.txt
+Binary data inserted for `string` type on column `asset_content_type`
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "assets" ("asset_content_type", "asset_file_name", "asset_file_size", "asset_updated_at", "created_at", "ticket_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["asset_content_type", "image/png"], ["asset_file_name", "Airport_Page_1.png"], ["asset_file_size", 124971], ["asset_updated_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00], ["created_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00], ["ticket_id", 11], ["updated_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00]]
+[paperclip] Saving attachments.
+[paperclip] saving c:/rails/ticketee/public/system/assets/2/original/Airport_Page_1.png
+Binary data inserted for `string` type on column `asset_content_type`
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "assets" ("asset_content_type", "asset_file_name", "asset_file_size", "asset_updated_at", "created_at", "ticket_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["asset_content_type", "text/plain"], ["asset_file_name", "spin.txt"], ["asset_file_size", 50], ["asset_updated_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00], ["created_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00], ["ticket_id", 11], ["updated_at", Tue, 18 Oct 2011 07:31:38 UTC +00:00]]
+[paperclip] Saving attachments.
+[paperclip] saving c:/rails/ticketee/public/system/assets/3/original/spin.txt
+Redirected to http://localhost:3000/projects/15/tickets/11
+Completed 302 Found in 798ms
+
+
+Started GET "/projects/15/tickets/11" for 127.0.0.1 at 2011-10-18 03:01:39 -0430
+  Processing by TicketsController#show as HTML
+  Parameters: {"project_id"=>"15", "id"=>"11"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15 AND "tickets"."id" = ? LIMIT 1[0m  [["id", "11"]]
+  [1m[35mAsset Load (0.0ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."ticket_id" = 11
+Rendered tickets/show.html.erb within layouts/application (39.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 212ms (Views: 142.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:39 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:39 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:39 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:39 -0430
+Served asset /admin/users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:39 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:01:39 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:39 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:01:39 -0430
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15" for 127.0.0.1 at 2011-10-18 03:02:34 -0430
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mTicket Load (0.0ms)[0m  [1mSELECT "tickets".* FROM "tickets" WHERE "tickets"."project_id" = 15[0m
+Rendered projects/show.html.erb within layouts/application (37.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 150ms (Views: 140.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:02:34 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:34 -0430
+Served asset /admin/users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:02:34 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:34 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:34 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:34 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:34 -0430
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:34 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/projects/15/tickets/new" for 127.0.0.1 at 2011-10-18 03:02:35 -0430
+  Processing by TicketsController#new as HTML
+  Parameters: {"project_id"=>"15"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", "15"]]
+Rendered tickets/_form.html.erb (5.0ms)
+Rendered tickets/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 275ms (Views: 28.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-18 03:02:36 -0430
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin/users.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:36 -0430
+Served asset /admin/users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:36 -0430
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-10-18 03:02:36 -0430
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:36 -0430
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:36 -0430
+Served asset /projects.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tickets.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:36 -0430
+Served asset /tickets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-18 03:02:36 -0430
+Served asset /application.js - 304 Not Modified (2ms)
